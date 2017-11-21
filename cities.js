@@ -28,8 +28,8 @@ function cityScore(h, cities) {
             continue;
         }
 	// maximize distance from center of map
-        score[i] += 0.01 / (1e-9 + Math.abs(h.mesh.vxs[i][0]) - h.mesh.extent.width/2)
-        score[i] += 0.01 / (1e-9 + Math.abs(h.mesh.vxs[i][1]) - h.mesh.extent.height/2)
+        score[i] += 0.1 / (1e-9 + Math.abs(h.mesh.vxs[i][0]) - h.mesh.extent.width/2)
+        score[i] += 0.1 / (1e-9 + Math.abs(h.mesh.vxs[i][1]) - h.mesh.extent.height/2)
 
 	// maximize distance from other cities
         for (var j = 0; j < cities.length; j++) {
