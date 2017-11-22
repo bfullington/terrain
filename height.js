@@ -208,7 +208,7 @@ function mountains(mesh, n, r) {
     // choose a center location for each desired mountain
     var mounts = [];
     for (var i = 0; i < n; i++) {
-        mounts.push([mesh.extent.width * (Math.random() - 0.5), mesh.extent.height * (Math.random() - 0.5)]);
+        mounts.push([mesh.extent.width * (gaussianRand(3) - 0.5), mesh.extent.height * (gaussianRand(3) - 0.5)]);
     }
 
     var newvals = zero(mesh);
@@ -224,6 +224,22 @@ function mountains(mesh, n, r) {
     }
     return newvals;
 }
+
+/**
+ * guasianRand ... generate numbers in a roughly gausian random distribution
+ * 
+ * @param   tightness of the gaussian curve
+ * @return	gaussian random number between 0 and 1
+ */
+function gaussianRand(cluster) {
+  var rand = 0;
+
+  for (var i = 0; i < cluster; i += 1) {
+    rand += Math.random();
+  }
+
+  return rand / cluster;
+} 
 
 /**
  * relax ... average with neighbors to smoothe terrain

@@ -44,3 +44,7 @@ select {
     font-size: medium;
     margin-left: 0.5rem;
 }
+
+slope {
+	color: grey;
+}
